@@ -26,10 +26,12 @@ lazy val dependencies = new {
   val scalaTest = "org.scalatest" %% "scalatest" % scalaTestVer
   val xtract = "com.lucidchart" %% "xtract" % "2.0.1"
   val xml = "org.scala-lang.modules" %% "scala-xml" % "1.1.1"
+  val commonIO = "commons-io" % "commons-io" % "2.6"
 }
 
 lazy val commonDeps = Seq(
   dependencies.scalaTest,
   dependencies.xtract,
-  dependencies.xml
+  dependencies.xml,
+  dependencies.commonIO
 )
