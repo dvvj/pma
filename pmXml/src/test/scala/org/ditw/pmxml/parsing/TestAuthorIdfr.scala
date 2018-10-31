@@ -1,7 +1,7 @@
 package org.ditw.pmxml.parsing
 
 import com.lucidchart.open.xtract.XmlReader
-import org.ditw.pmxml.model.ArtiSet
+import org.ditw.pmxml.model.{ArtiSet, Author, Identifier}
 import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.{FlatSpec, Matchers}
 
@@ -14,7 +14,14 @@ class TestAuthorIdfr extends FlatSpec with Matchers with TableDrivenPropertyChec
     ("testxml", "authorsWithIdentifier"),
     (
       TestStr_AuthorWithIdentifier,
-      Seq()
+      Map(
+        28993670 -> Seq(
+          Author(
+            "Y", "Palesi", "Fulvia", "F",
+            Option(Identifier("ORCID", "http://orcid.org/0000-0001-5027-8770"))
+          )
+        )
+      )
     )
   )
 
@@ -26,8 +33,9 @@ class TestAuthorIdfr extends FlatSpec with Matchers with TableDrivenPropertyChec
       val pmid2AuthorsWithIds = parsed.map { p =>
         p.artis.map(arti => arti.citation.pmid -> arti.citation.authors.authors.filter(_.idfr.nonEmpty)).toMap
       }.getOrElse(Map())
-
       println(pmid2AuthorsWithIds.size)
+
+      pmid2AuthorsWithIds shouldBe authorsWithId
     }
   }
 }
