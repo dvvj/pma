@@ -7,7 +7,8 @@ case class Citation(
   pmid:Int,
   journal:JournalInfo,
   _abstract:Abstract,
-  authors:AuthorList
+  authors:AuthorList,
+  meshHeadings:MeshHeadings
 ) {
 
 }
@@ -18,5 +19,6 @@ object Citation extends Serializable {
       (__ \ Article \ Journal).read[JournalInfo],
       (__ \ Article \ _Abstract).read[Abstract],
       (__ \ Article \ _AuthorList).read[AuthorList],
+      (__ \ MeshHeadingList).read[MeshHeadings]
   ).mapN(apply)
 }

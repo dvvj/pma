@@ -34,6 +34,13 @@ object Constants extends Serializable {
     val Source = "Source"
     val ValidYN = "ValidYN"
     val _Identifier = "Identifier"
+    val IssnType = "IssnType"
+    val DescriptorName = "DescriptorName"
+    val UI = "UI"
+    val MajorTopicYN = "MajorTopicYN"
+    val QualifierName = "QualifierName"
+    val _MeshHeading = "MeshHeading"
+    val MeshHeadingList = "MeshHeadingList"
   }
 
 }

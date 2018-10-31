@@ -20,6 +20,24 @@ class TestAuthorIdfr extends FlatSpec with Matchers with TableDrivenPropertyChec
             "Y", "Palesi", "Fulvia", "F",
             Option(Identifier("ORCID", "http://orcid.org/0000-0001-5027-8770"))
           )
+        ),
+        28993301 -> Seq(
+          Author(
+            "Y", "Mizdrak", "Anja", "A",
+            Option(Identifier("ORCID", "http://orcid.org/0000-0002-2897-3002"))
+          ),
+          Author(
+            "Y", "Waterlander", "Wilma Elzeline", "WE",
+            Option(Identifier("ORCID", "http://orcid.org/0000-0003-0956-178X"))
+          ),
+          Author(
+            "Y", "Rayner", "Mike", "M",
+            Option(Identifier("ORCID", "http://orcid.org/0000-0003-0479-6483"))
+          ),
+          Author(
+            "Y", "Scarborough", "Peter", "P",
+            Option(Identifier("ORCID", "http://orcid.org/0000-0002-2378-2944"))
+          )
         )
       )
     )
