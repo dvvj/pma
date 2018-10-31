@@ -232,97 +232,11 @@
                 <DescriptorName UI="D000072283" MajorTopicYN="N">A549 Cells</DescriptorName>
             </MeshHeading>
             <MeshHeading>
-                <DescriptorName UI="D000970" MajorTopicYN="N">Antineoplastic Agents</DescriptorName>
-                <QualifierName UI="Q000494" MajorTopicYN="Y">pharmacology</QualifierName>
-            </MeshHeading>
-            <MeshHeading>
                 <DescriptorName UI="D049109" MajorTopicYN="N">Cell Proliferation</DescriptorName>
                 <QualifierName UI="Q000187" MajorTopicYN="N">drug effects</QualifierName>
             </MeshHeading>
             <MeshHeading>
                 <DescriptorName UI="D056743" MajorTopicYN="N">Cyclin D3</DescriptorName>
-                <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
-                <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D019927" MajorTopicYN="N">Cyclin E</DescriptorName>
-                <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
-                <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D051357" MajorTopicYN="N">Cyclin-Dependent Kinase 2</DescriptorName>
-                <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
-                <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D051358" MajorTopicYN="N">Cyclin-Dependent Kinase 4</DescriptorName>
-                <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
-                <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D051361" MajorTopicYN="N">Cyclin-Dependent Kinase 6</DescriptorName>
-                <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
-                <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D059585" MajorTopicYN="N">G1 Phase Cell Cycle Checkpoints</DescriptorName>
-                <QualifierName UI="Q000187" MajorTopicYN="Y">drug effects</QualifierName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D051380" MajorTopicYN="N">GRB2 Adaptor Protein</DescriptorName>
-                <QualifierName UI="Q000037" MajorTopicYN="Y">antagonists &amp; inhibitors</QualifierName>
-                <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
-                <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D015972" MajorTopicYN="Y">Gene Expression Regulation, Neoplastic</DescriptorName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D006801" MajorTopicYN="N">Humans</DescriptorName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D019950" MajorTopicYN="N">Mitogen-Activated Protein Kinase 1</DescriptorName>
-                <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
-                <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D048052" MajorTopicYN="N">Mitogen-Activated Protein Kinase 3</DescriptorName>
-                <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
-                <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D015513" MajorTopicYN="N">Oncogene Proteins</DescriptorName>
-                <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
-                <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D010766" MajorTopicYN="N">Phosphorylation</DescriptorName>
-                <QualifierName UI="Q000187" MajorTopicYN="N">drug effects</QualifierName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D019908" MajorTopicYN="N">Proto-Oncogene Proteins c-raf</DescriptorName>
-                <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
-                <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D034741" MajorTopicYN="N">RNA, Small Interfering</DescriptorName>
-                <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
-                <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D011958" MajorTopicYN="N">Receptor, Epidermal Growth Factor</DescriptorName>
-                <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
-                <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D015398" MajorTopicYN="N">Signal Transduction</DescriptorName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D008063" MajorTopicYN="N">Thioctic Acid</DescriptorName>
-                <QualifierName UI="Q000494" MajorTopicYN="Y">pharmacology</QualifierName>
-            </MeshHeading>
-            <MeshHeading>
-                <DescriptorName UI="D018631" MajorTopicYN="N">ras Proteins</DescriptorName>
                 <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
                 <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
             </MeshHeading>
