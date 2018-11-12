@@ -6,9 +6,10 @@ import cats.syntax.all._
 
 import DateCommon._
 case class DateCommon(
-                     year:Int,
+                     year:Option[Int],
                      private val _month:Option[String],
-                     day:Option[Int]
+                     day:Option[Int],
+                     medlineDate:Option[String]
                      ) {
   val month:Option[Int] = {
 
@@ -45,8 +46,9 @@ object DateCommon {
   ).flatMap(kv => kv._1.map(_ -> kv._2))
 
   implicit val reader:XmlReader[DateCommon] = (
-    (__ \ Year).read[Int],
+    (__ \ Year).read[Int].optional,
     (__ \ Month).read[String].optional,
-    (__ \ Day).read[Int].optional
+    (__ \ Day).read[Int].optional,
+    (__ \ MedlineDate).read[String].optional
   ).mapN(apply)
 }

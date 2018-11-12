@@ -16,7 +16,7 @@ class TestAuthorIdfr extends FlatSpec with Matchers with TableDrivenPropertyChec
       TestStr_AuthorWithIdentifier,
       Map(
         28993670 -> Seq(
-          Author(
+          Author.fullName(
             "Y", "Palesi", "Fulvia", "F",
             Seq(
               AffInfo("Department of Physics, University of Pavia, Pavia, PV, Italy. fulvia.palesi@unipv.it."),
@@ -26,28 +26,28 @@ class TestAuthorIdfr extends FlatSpec with Matchers with TableDrivenPropertyChec
           )
         ),
         28993301 -> Seq(
-          Author(
+          Author.fullName(
             "Y", "Mizdrak", "Anja", "A",
             Seq(
               AffInfo("Burden of Disease Epidemiology, Equity and Cost-Effectiveness Programme (BODE3), Department of Public Health, University of Otago, Wellington, Wellington, New Zealand.")
             ),
             Option(Identifier("ORCID", "http://orcid.org/0000-0002-2897-3002"))
           ),
-          Author(
+          Author.fullName(
             "Y", "Waterlander", "Wilma Elzeline", "WE",
             Seq(
               AffInfo("National Institute of Health Innovation, University of Auckland, Auckland, New Zealand.")
             ),
             Option(Identifier("ORCID", "http://orcid.org/0000-0003-0956-178X"))
           ),
-          Author(
+          Author.fullName(
             "Y", "Rayner", "Mike", "M",
             Seq(
               AffInfo("Centre on Population Approaches for Non-Communicable Disease Prevention, Nuffield Department of Population Health, University of Oxford, Oxford, United Kingdom.")
             ),
             Option(Identifier("ORCID", "http://orcid.org/0000-0003-0479-6483"))
           ),
-          Author(
+          Author.fullName(
             "Y", "Scarborough", "Peter", "P",
             Seq(
               AffInfo("Centre on Population Approaches for Non-Communicable Disease Prevention, Nuffield Department of Population Health, University of Oxford, Oxford, United Kingdom.")

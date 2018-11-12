@@ -16,7 +16,7 @@ class TestAffIdfr extends FlatSpec with Matchers with TableDrivenPropertyChecks 
       TestStr_AffWithIdfr,
       Map(
         29151804 -> Seq(
-          Author(
+          Author.fullName(
             "Y", "Dixit", "Shalabh", "S",
             Seq(
               AffInfo(
@@ -34,7 +34,7 @@ class TestAffIdfr extends FlatSpec with Matchers with TableDrivenPropertyChecks 
               )
             )
           ),
-          Author(
+          Author.fullName(
             "Y", "Singh", "Anshuman", "A",
             Seq(
               AffInfo(
@@ -55,7 +55,7 @@ class TestAffIdfr extends FlatSpec with Matchers with TableDrivenPropertyChecks 
               )
             )
           ),
-          Author(
+          Author.fullName(
             "Y", "Sandhu", "Nitika", "N",
             Seq(
               AffInfo(
@@ -73,7 +73,7 @@ class TestAffIdfr extends FlatSpec with Matchers with TableDrivenPropertyChecks 
               )
             )
           ),
-          Author(
+          Author.fullName(
             "Y", "Bhandari", "Aditi", "A",
             Seq(
               AffInfo(
@@ -91,7 +91,7 @@ class TestAffIdfr extends FlatSpec with Matchers with TableDrivenPropertyChecks 
               )
             )
           ),
-          Author(
+          Author.fullName(
             "Y", "Vikram", "Prashant", "P",
             Seq(
               AffInfo(
@@ -122,7 +122,7 @@ class TestAffIdfr extends FlatSpec with Matchers with TableDrivenPropertyChecks 
               )
             )
           ),
-          Author(
+          Author.fullName(
             "Y", "Kumar", "Arvind", "A",
             Seq(
               AffInfo(
@@ -142,7 +142,7 @@ class TestAffIdfr extends FlatSpec with Matchers with TableDrivenPropertyChecks 
           )
         ),
         29151805 -> Seq(
-          Author(
+          Author.fullName(
             "Y", "Fiala", "Lenka", "L",
             Seq(
               AffInfo(
@@ -160,7 +160,7 @@ class TestAffIdfr extends FlatSpec with Matchers with TableDrivenPropertyChecks 
               )
             )
           ),
-          Author(
+          Author.fullName(
             "Y", "Suetens", "Sigrid", "S",
             Seq(
               AffInfo(
@@ -189,6 +189,7 @@ class TestAffIdfr extends FlatSpec with Matchers with TableDrivenPropertyChecks 
     forAll(testData) { (testXml, authorWithAffsWithIdfr) =>
       val xml = XML.loadString(testXml)
       val parsed = XmlReader.of[ArtiSet].read(xml)
+      parsed.errors.isEmpty shouldBe true
 
       val pmid2Authors = parsed.map { p =>
         p.artis.map(arti =>

@@ -19,7 +19,7 @@ lazy val common = project
   )
 
 lazy val sparkDeps = Seq(
-  dependencies.spark2_12
+  dependencies.spark2_11
 )
 lazy val sparkRun = project
   .in(file("spark-run"))
@@ -27,7 +27,7 @@ lazy val sparkRun = project
     libraryDependencies ++= commonDeps
       ++ sparkDeps
   )
-  .dependsOn(common)
+  .dependsOn(common, pmXml)
 
 lazy val pmXml = project.dependsOn(common)
   .settings(

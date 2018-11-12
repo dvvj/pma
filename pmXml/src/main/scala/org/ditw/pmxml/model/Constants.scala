@@ -41,6 +41,8 @@ object Constants extends Serializable {
     val QualifierName = "QualifierName"
     val _MeshHeading = "MeshHeading"
     val MeshHeadingList = "MeshHeadingList"
+    val CollectiveName = "CollectiveName"
+    val MedlineDate = "MedlineDate"
   }
 
 }
