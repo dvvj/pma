@@ -1,8 +1,9 @@
 package org.ditw.pma.sparkRun
 
 import com.lucidchart.open.xtract.XmlReader
+import org.apache.spark.storage.StorageLevel
 import org.ditw.pma.common.spark.SparkUtils
-import org.ditw.pmxml.model.ArtiSet
+import org.ditw.pmxml.model.{Arti, ArtiSet}
 
 import scala.xml.XML
 
@@ -11,6 +12,8 @@ object ExtractPM {
   def main(args:Array[String]):Unit = {
     val runLocally = if (args.length > 0) args(0).toBoolean else true
     val inputPath = if (args.length > 1) args(1) else "file:///media/sf_vmshare/_pmd/*.xml"
+    val outputPath = if (args.length > 2) args(2) else "file:///media/sf_vmshare/_pmj"
+    val parts = if (args.length > 3) args(3).toInt else 4
 
     val spark =
       if (runLocally) {
@@ -19,17 +22,28 @@ object ExtractPM {
       else {
         SparkUtils.sparkContext(false, "GeoRunMatchers", 128)
       }
-    val parseErrors = spark.wholeTextFiles(inputPath)
+    spark.setLogLevel("WARN")
+    val parseResults = spark.wholeTextFiles(inputPath)
       .map { p =>
         val xml = XML.loadString(p._2)
         val parsed = XmlReader.of[ArtiSet].read(xml)
-        val errors = parsed.errors.size
-        if (errors > 0)
-          println(parsed.errors)
-        errors
+        val artiSet:ArtiSet = parsed.getOrElse(ArtiSet.EmptyArtiSet)
+        (p._1, artiSet, parsed.errors)
       }
+      .persist(StorageLevel.MEMORY_AND_DISK_SER_2)
+    val parseErrors:Map[String, Int] = parseResults
+      .filter(_._3.nonEmpty)
+      .map(p => p._1 -> p._3.size)
+      .collect().toMap
 
-    println(s"lines: ${parseErrors.sum}")
+    println(s"Error Map: $parseErrors")
+
+    val parseRes = parseResults.flatMap(_._2.artis)
+      .repartition(parts)
+      .map(Arti.toJson)
+      .persist(StorageLevel.MEMORY_AND_DISK_SER_2)
+
+    parseRes.saveAsTextFile(outputPath)
 
     spark.stop()
 

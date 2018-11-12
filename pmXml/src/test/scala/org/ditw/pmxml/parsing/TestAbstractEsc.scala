@@ -14,8 +14,8 @@ class TestAbstractEsc extends FlatSpec with Matchers {
     val parsed = XmlReader.of[ArtiSet].read(xml)
 
     val abs:String = parsed.map(_.artis.head.citation._abstract.texts.head.text).getOrElse(None).asInstanceOf[String]
-    //abs shouldBe "... (μgNm<sup>-3</sup>) coupled with ..."
-    abs shouldBe "... (μgNm-3) coupled with ..."
+    abs shouldBe "... (μgNm<sup>-3</sup>) coupled with ..."
+    //abs shouldBe "... (μgNm-3) coupled with ..."
   }
 
 }

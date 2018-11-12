@@ -12,6 +12,8 @@ case class ArtiSet(artis:Seq[Arti]) {
 }
 
 object ArtiSet extends Serializable {
+  val EmptyArtiSet = ArtiSet(Seq())
+
   implicit val reader:XmlReader[ArtiSet] = (
     (__ \ PubmedArticle).read(seq[Arti]).map(apply)
   )
