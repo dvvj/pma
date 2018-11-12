@@ -7,9 +7,9 @@ import Constants.XmlTags._
 import cats.syntax.all._
 
 case class Identifier(
-                     src:String,
-                     v:String
-                     ) {
+  src:String,
+  v:String
+) {
 
 }
 

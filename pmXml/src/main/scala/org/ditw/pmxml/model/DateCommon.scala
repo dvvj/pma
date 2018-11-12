@@ -7,15 +7,22 @@ import cats.syntax.all._
 import DateCommon._
 case class DateCommon(
                      year:Int,
-                     private val _month:String,
-                     day:Int
+                     private val _month:Option[String],
+                     day:Option[Int]
                      ) {
-  val month:Int = {
-    if (_month.forall(_.isDigit)) {
-      _month.toInt
-    }
+  val month:Option[Int] = {
+
+    if (_month.isEmpty)
+      None
     else {
-      monthMap(_month)
+      val monStr = _month.get
+      val monVal = if (monStr.forall(_.isDigit)) {
+        monStr.toInt
+      }
+      else {
+        monthMap(monStr)
+      }
+      Option(monVal)
     }
   }
 
@@ -39,7 +46,7 @@ object DateCommon {
 
   implicit val reader:XmlReader[DateCommon] = (
     (__ \ Year).read[Int],
-    (__ \ Month).read[String],
-    (__ \ Day).read[Int]
+    (__ \ Month).read[String].optional,
+    (__ \ Day).read[Int].optional
   ).mapN(apply)
 }

@@ -1,7 +1,7 @@
 package org.ditw.pmxml.parsing
 
 import com.lucidchart.open.xtract.XmlReader
-import org.ditw.pmxml.model.{ArtiSet, Author, Identifier}
+import org.ditw.pmxml.model.{AffInfo, ArtiSet, Author, Identifier}
 import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.{FlatSpec, Matchers}
 
@@ -18,24 +18,40 @@ class TestAuthorIdfr extends FlatSpec with Matchers with TableDrivenPropertyChec
         28993670 -> Seq(
           Author(
             "Y", "Palesi", "Fulvia", "F",
+            Seq(
+              AffInfo("Department of Physics, University of Pavia, Pavia, PV, Italy. fulvia.palesi@unipv.it."),
+              AffInfo("Brain Connectivity Center, C. Mondino National Neurological Institute, Pavia, PV, Italy. fulvia.palesi@unipv.it.")
+            ),
             Option(Identifier("ORCID", "http://orcid.org/0000-0001-5027-8770"))
           )
         ),
         28993301 -> Seq(
           Author(
             "Y", "Mizdrak", "Anja", "A",
+            Seq(
+              AffInfo("Burden of Disease Epidemiology, Equity and Cost-Effectiveness Programme (BODE3), Department of Public Health, University of Otago, Wellington, Wellington, New Zealand.")
+            ),
             Option(Identifier("ORCID", "http://orcid.org/0000-0002-2897-3002"))
           ),
           Author(
             "Y", "Waterlander", "Wilma Elzeline", "WE",
+            Seq(
+              AffInfo("National Institute of Health Innovation, University of Auckland, Auckland, New Zealand.")
+            ),
             Option(Identifier("ORCID", "http://orcid.org/0000-0003-0956-178X"))
           ),
           Author(
             "Y", "Rayner", "Mike", "M",
+            Seq(
+              AffInfo("Centre on Population Approaches for Non-Communicable Disease Prevention, Nuffield Department of Population Health, University of Oxford, Oxford, United Kingdom.")
+            ),
             Option(Identifier("ORCID", "http://orcid.org/0000-0003-0479-6483"))
           ),
           Author(
             "Y", "Scarborough", "Peter", "P",
+            Seq(
+              AffInfo("Centre on Population Approaches for Non-Communicable Disease Prevention, Nuffield Department of Population Health, University of Oxford, Oxford, United Kingdom.")
+            ),
             Option(Identifier("ORCID", "http://orcid.org/0000-0002-2378-2944"))
           )
         )

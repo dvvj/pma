@@ -6,8 +6,8 @@ import Constants.XmlTags._
 import cats.syntax.all._
 
 case class AbstractText(
-                       label:String,
-                       category:String,
+                       label:Option[String],
+                       category:Option[String],
                        text:String
                        ) {
 
@@ -15,8 +15,8 @@ case class AbstractText(
 
 object AbstractText {
   implicit val reader:XmlReader[AbstractText] = (
-    attribute[String](Label),
-    attribute[String](NlmCategory),
+    attribute[String](Label).optional,
+    attribute[String](NlmCategory).optional,
     (__).read[String]
   ).mapN(apply)
 }

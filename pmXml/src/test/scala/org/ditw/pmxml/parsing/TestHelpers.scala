@@ -16,6 +16,7 @@ object TestHelpers {
   }
 
   val TestStr_Simple:String = loadRes("/testdata/simple.xml")
+  val TestStr_AffWithIdfr:String = loadRes("/testdata/aff_with_idfr.xml")
 
   val TestStr_AuthorWithIdentifier = loadRes("/testdata/author-identifier.xml")
 }

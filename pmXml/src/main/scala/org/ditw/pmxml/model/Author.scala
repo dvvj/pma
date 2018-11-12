@@ -10,19 +10,20 @@ case class Author(
                  lastName:String,
                  foreName:String,
                  initials:String,
-                 idfr:Option[Identifier]
+                 affInfo:Seq[AffInfo],
+                 idfr:Option[Identifier] = None
                  ) {
   val isValid:Boolean = _isValid == "Y"
 }
 
 object Author extends Serializable {
-  implicit val reader:XmlReader[Author] = (
+  implicit val reader:XmlReader[Author] =
     (
       attribute[String](ValidYN),
       (__ \ LastName).read[String],
       (__ \ ForeName).read[String],
       (__ \ Initials).read[String],
+      (__ \ AffiliationInfo).read(seq[AffInfo]),
       (__ \ _Identifier).read[Identifier].optional
-    )
     ).mapN(apply)
 }
