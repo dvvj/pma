@@ -7,7 +7,7 @@ import Constants.XmlTags._
 import cats.syntax.all._
 
 case class JournalInfo(
-  ISSN: String,
+  ISSN: Option[String],
   title:String,
   pubDate:DateCommon
 ) {
@@ -16,7 +16,7 @@ case class JournalInfo(
 
 object JournalInfo extends Serializable {
   implicit val reader:XmlReader[JournalInfo] = (
-    (__ \ ISSN).read[String],
+    (__ \ ISSN).read[String].optional,
     (__ \ Title).read[String],
     (__ \ JournalIssue \ PubDate).read[DateCommon]
   ).mapN(apply)
