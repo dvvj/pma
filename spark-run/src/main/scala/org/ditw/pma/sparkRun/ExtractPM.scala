@@ -9,9 +9,16 @@ import scala.xml.XML
 object ExtractPM {
 
   def main(args:Array[String]):Unit = {
-    val spark = SparkUtils.sparkContextLocal()
     val runLocally = if (args.length > 0) args(0).toBoolean else true
     val inputPath = if (args.length > 1) args(1) else "file:///media/sf_vmshare/_pmd/*.xml"
+
+    val spark =
+      if (runLocally) {
+        SparkUtils.sparkContextLocal()
+      }
+      else {
+        SparkUtils.sparkContext(false, "GeoRunMatchers", 128)
+      }
     val parseErrors = spark.wholeTextFiles(inputPath)
       .map { p =>
         val xml = XML.loadString(p._2)
