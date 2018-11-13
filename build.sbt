@@ -26,8 +26,8 @@ lazy val sparkRun = project
   .settings(
     libraryDependencies ++= commonDeps
       ++ sparkDeps,
-    exportJars := true,
-    assemblyStrategySetting
+    exportJars := true
+    ,assemblyStrategySetting
   )
   .dependsOn(common, pmXml)
 

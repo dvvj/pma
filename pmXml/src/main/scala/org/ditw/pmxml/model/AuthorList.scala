@@ -6,8 +6,8 @@ import Constants.XmlTags._
 import cats.syntax.all._
 
 case class AuthorList(
-                     authors:Seq[Author]
-                     ) {
+  authors:Seq[Author]
+) {
 
 }
 

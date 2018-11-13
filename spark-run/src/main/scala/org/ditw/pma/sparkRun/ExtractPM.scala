@@ -17,13 +17,16 @@ object ExtractPM {
 
     val spark =
       if (runLocally) {
+        println("Running locally ...")
         SparkUtils.sparkContextLocal()
       }
       else {
+        println("Running on cluster ...")
         SparkUtils.sparkContext(false, "GeoRunMatchers", 128)
       }
     spark.setLogLevel("WARN")
-    val parseResults = spark.wholeTextFiles(inputPath)
+
+    val parseResults = spark.wholeTextFiles(inputPath, parts)
       .map { p =>
         val xml = XML.loadString(p._2)
         val parsed = XmlReader.of[ArtiSet].read(xml)
@@ -43,7 +46,10 @@ object ExtractPM {
       .map(Arti.toJson)
       .persist(StorageLevel.MEMORY_AND_DISK_SER_2)
 
+    println("Saving ...")
+
     parseRes.saveAsTextFile(outputPath)
+    println("Done ...")
 
     spark.stop()
 
