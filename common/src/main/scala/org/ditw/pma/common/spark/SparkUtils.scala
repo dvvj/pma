@@ -1,8 +1,10 @@
 package org.ditw.pma.common.spark
 
 import java.io.File
+import java.net.URI
 
 import org.apache.commons.io.FileUtils
+import org.apache.hadoop.fs.{FileSystem, Path}
 import org.apache.spark.{SparkConf, SparkContext}
 
 object SparkUtils {
@@ -48,6 +50,12 @@ object SparkUtils {
     if (pathFile.exists()) {
       FileUtils.deleteDirectory(pathFile)
     }
+  }
+
+  def del(spark:SparkContext, path:String):Boolean = {
+    val uri = new URI(path)
+    val fs = FileSystem.get(uri, spark.hadoopConfiguration)
+    fs.delete(new Path(path), true)
   }
 
   //  def sparkSessionLocal(appName:String = "[NO NAME]", numReducer:Int = 4) = {

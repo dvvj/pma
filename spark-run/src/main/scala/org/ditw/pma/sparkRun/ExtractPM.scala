@@ -45,6 +45,8 @@ object ExtractPM {
 
     println("Saving ...")
 
+    SparkUtils.del(spark, outputPath)
+    println(s"$outputPath data deleted ...")
     parseRes.saveAsTextFile(outputPath)
     println("Done ...")
 
