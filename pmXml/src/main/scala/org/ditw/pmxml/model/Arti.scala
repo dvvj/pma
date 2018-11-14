@@ -21,6 +21,12 @@ object Arti extends Serializable {
     write(arti)
   }
 
+  def readJson(j:String):Arti = {
+    implicit val fmts = _fmts
+    import org.json4s.jackson.JsonMethods._
+    parse(j).extract[Arti]
+  }
+
   implicit val reader:XmlReader[Arti] = (
     (__ \ MedlineCitation).read[Citation],
     (__ \ PubmedData \ PublicationStatus).read[String],

@@ -26,9 +26,10 @@ object SparkUtils {
     val conf = config(localRun, appName, numReducer)
     val spark = new SparkContext(conf)
 
-    if (localRun) {
-      spark.setLogLevel("WARN")
-    }
+//    if (localRun) {
+//      spark.setLogLevel("WARN")
+//    }
+    spark.setLogLevel("WARN")
 
     //    if (localRun) {
     //      val credentialsProvider = new ProfileCredentialsProvider

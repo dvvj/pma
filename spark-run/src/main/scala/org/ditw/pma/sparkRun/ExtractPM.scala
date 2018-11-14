@@ -17,14 +17,11 @@ object ExtractPM {
 
     val spark =
       if (runLocally) {
-        println("Running locally ...")
         SparkUtils.sparkContextLocal()
       }
       else {
-        println("Running on cluster ...")
-        SparkUtils.sparkContext(false, "GeoRunMatchers", 128)
+        SparkUtils.sparkContext(false, "GeoRunMatchers", parts)
       }
-    spark.setLogLevel("WARN")
 
     val parseResults = spark.wholeTextFiles(inputPath, parts)
       .map { p =>
